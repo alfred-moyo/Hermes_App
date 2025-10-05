@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rate Service - Employee Transport Manager">
+    <title>Rate Service - Passenger</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content container">
+            <a href="passenger-dashboard.html" class="logo">
+                <div class="logo-icon">🚌</div>
+                <span>Transport Manager</span>
+            </a>
+            <div class="user-menu">
+                <div class="user-info">
+                    <span class="user-name">Alice Anderson</span>
+                    <span class="user-role badge badge-passenger">Passenger</span>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        <nav class="nav-menu" id="navMenu">
+            <a href="passenger-dashboard.html" class="nav-link">Dashboard</a>
+            <a href="passenger-track.html" class="nav-link">Track Driver</a>
+            <a href="passenger-rate.html" class="nav-link active">Rate Service</a>
+            <a href="../index.html" class="nav-link">Logout</a>
+        </nav>
+    </header>
+
+    <main class="page-wrapper">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Rate Your Experience</h1>
+                <p class="page-subtitle">Help us improve our service</p>
+            </div>
+
+            <!-- Recent Trip to Rate -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Rate Your Recent Trip</h2>
+                    <p class="card-subtitle">October 4, 2025 - Route A</p>
+                </div>
+                <div class="card-body">
+                    <!-- Driver Info -->
+                    <div class="list-item" style="margin-bottom: 2rem;">
+                        <div class="list-item-icon" style="background-color: var(--driver-color); color: white; width: 64px; height: 64px; font-size: 1.5rem;">
+                            JD
+                        </div>
+                        <div class="list-item-content">
+                            <div class="list-item-title" style="font-size: 1.25rem;">John Doe</div>
+                            <div class="list-item-subtitle">
+                                Vehicle: AB-1234 | Route A - Tech Park Zone<br>
+                                Pickup: 8:00 AM | Current Rating: ⭐ 4.8
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rating Form -->
+                    <form id="ratingForm">
+                        <div class="rating-container">
+                            <h3 style="font-size: 1.25rem; font-weight: 600; color: var(--text-primary); margin-bottom: 1rem;">
+                                How was your experience?
+                            </h3>
+                            <div class="star-rating" id="starRating">
+                                <button type="button" class="star" data-rating="1" onclick="setRating(1)">★</button>
+                                <button type="button" class="star" data-rating="2" onclick="setRating(2)">★</button>
+                                <button type="button" class="star" data-rating="3" onclick="setRating(3)">★</button>
+                                <button type="button" class="star" data-rating="4" onclick="setRating(4)">★</button>
+                                <button type="button" class="star" data-rating="5" onclick="setRating(5)">★</button>
+                            </div>
+                            <p id="ratingText" style="font-size: 1.125rem; color: var(--text-secondary); margin-top: 1rem;">
+                                Tap a star to rate
+                            </p>
+                        </div>
+
+                        <input type="hidden" id="ratingValue" name="rating" required>
+
+                        <!-- Rating Categories -->
+                        <div style="margin-top: 2rem;">
+                            <h3 style="font-size: 1.125rem; font-weight: 600; color: var(--text-primary); margin-bottom: 1rem;">
+                                Rate Specific Aspects
+                            </h3>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Punctuality</label>
+                                <div class="btn-group" style="display: grid; grid-template-columns: repeat(5, 1fr);">
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="selectAspect(this, 'punctuality', 1)">1</button>
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="selectAspect(this, 'punctuality', 2)">2</button>
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="selectAspect(this, 'punctuality', 3)">3</button>
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="selectAspect(this, 'punctuality', 4)">4</button>
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="selectAspect(this, 'punctuality', 5)">5</button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Driving Safety</label>
+                                <div class="btn-group" style="display: grid; grid-template-columns: repeat(5, 1fr);">
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="selectAspect(this, 'safety', 1)">1</button>
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="selectAspect(this, 'safety', 2)">2</button>
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="selectAspect(this, 'safety', 3)">3</button>
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="selectAspect(this, 'safety', 4)">4</button>
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="selectAspect(this, 'safety', 5)">5</button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Professionalism</label>
+                                <div class="btn-group" style="display: grid; grid-template-columns: repeat(5, 1fr);">
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="selectAspect(this, 'professionalism', 1)">1</button>
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="selectAspect(this, 'professionalism', 2)">2</button>
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="selectAspect(this, 'professionalism', 3)">3</button>
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="selectAspect(this, 'professionalism', 4)">4</button>
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="selectAspect(this, 'professionalism', 5)">5</button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Vehicle Cleanliness</label>
+                                <div class="btn-group" style="display: grid; grid-template-columns: repeat(5, 1fr);">
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="selectAspect(this, 'cleanliness', 1)">1</button>
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="selectAspect(this, 'cleanliness', 2)">2</button>
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="selectAspect(this, 'cleanliness', 3)">3</button>
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="selectAspect(this, 'cleanliness', 4)">4</button>
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="selectAspect(this, 'cleanliness', 5)">5</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Written Feedback -->
+                        <div class="form-group">
+                            <label for="feedback" class="form-label">Additional Comments (Optional)</label>
+                            <textarea 
+                                id="feedback" 
+                                name="feedback"
+                                class="form-textarea" 
+                                placeholder="Share more details about your experience..."
+                                rows="4"
+                            ></textarea>
+                            <p class="form-help">Your feedback helps us maintain high service quality</p>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary btn-block btn-lg">
+                            Submit Rating
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Previous Ratings -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Your Previous Ratings</h2>
+                    <p class="card-subtitle">Feedback history</p>
+                </div>
+                <div class="card-body">
+                    <ul class="list">
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--driver-color); color: white;">
+                                JD
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">John Doe - October 3, 2025</div>
+                                <div class="list-item-subtitle">
+                                    ⭐⭐⭐⭐⭐ "Always on time and very professional. Great driver!"
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--driver-color); color: white;">
+                                JD
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">John Doe - October 2, 2025</div>
+                                <div class="list-item-subtitle">
+                                    ⭐⭐⭐⭐⭐ "Safe driving and friendly service."
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--driver-color); color: white;">
+                                SM
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">Sarah Miller - October 1, 2025</div>
+                                <div class="list-item-subtitle">
+                                    ⭐⭐⭐⭐ "Good service. Vehicle was very clean."
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tips for Better Ratings -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Rating Guidelines</h2>
+                </div>
+                <div class="card-body">
+                    <div style="display: grid; gap: 1rem;">
+                        <div style="display: flex; gap: 0.75rem; align-items: start;">
+                            <span style="color: #fbbf24; font-size: 1.5rem;">⭐⭐⭐⭐⭐</span>
+                            <div>
+                                <strong style="color: var(--text-primary);">5 Stars - Excellent</strong>
+                                <p style="color: var(--text-secondary); margin-top: 0.25rem; font-size: 0.875rem;">
+                                    Outstanding service, on-time, professional, and safe
+                                </p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 0.75rem; align-items: start;">
+                            <span style="color: #fbbf24; font-size: 1.5rem;">⭐⭐⭐⭐</span>
+                            <div>
+                                <strong style="color: var(--text-primary);">4 Stars - Good</strong>
+                                <p style="color: var(--text-secondary); margin-top: 0.25rem; font-size: 0.875rem;">
+                                    Good service with minor room for improvement
+                                </p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 0.75rem; align-items: start;">
+                            <span style="color: #fbbf24; font-size: 1.5rem;">⭐⭐⭐</span>
+                            <div>
+                                <strong style="color: var(--text-primary);">3 Stars - Average</strong>
+                                <p style="color: var(--text-secondary); margin-top: 0.25rem; font-size: 0.875rem;">
+                                    Acceptable service but needs improvement
+                                </p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 0.75rem; align-items: start;">
+                            <span style="color: #fbbf24; font-size: 1.5rem;">⭐⭐</span>
+                            <div>
+                                <strong style="color: var(--text-primary);">2 Stars - Below Average</strong>
+                                <p style="color: var(--text-secondary); margin-top: 0.25rem; font-size: 0.875rem;">
+                                    Service had noticeable issues
+                                </p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 0.75rem; align-items: start;">
+                            <span style="color: #fbbf24; font-size: 1.5rem;">⭐</span>
+                            <div>
+                                <strong style="color: var(--text-primary);">1 Star - Poor</strong>
+                                <p style="color: var(--text-secondary); margin-top: 0.25rem; font-size: 0.875rem;">
+                                    Unacceptable service requiring immediate attention
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/navigation.js"></script>
+    <script src="../js/rating.js"></script>
+</body>
+</html>

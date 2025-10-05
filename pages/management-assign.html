@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Assign Drivers - Employee Transport Manager">
+    <title>Assign Drivers - Management</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content container">
+            <a href="management-dashboard.html" class="logo">
+                <div class="logo-icon">🚌</div>
+                <span>Transport Manager</span>
+            </a>
+            <div class="user-menu">
+                <div class="user-info">
+                    <span class="user-name">Management User</span>
+                    <span class="user-role badge badge-management">Management</span>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        <nav class="nav-menu" id="navMenu">
+            <a href="management-dashboard.html" class="nav-link">Dashboard</a>
+            <a href="management-assign.html" class="nav-link active">Assign Drivers</a>
+            <a href="management-reports.html" class="nav-link">Reports</a>
+            <a href="../index.html" class="nav-link">Logout</a>
+        </nav>
+    </header>
+
+    <main class="page-wrapper">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Assign Drivers & Passengers</h1>
+                <p class="page-subtitle">Create and manage driver-passenger assignments</p>
+            </div>
+
+            <!-- Assignment Form -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Create New Assignment</h2>
+                </div>
+                <div class="card-body">
+                    <form id="assignmentForm">
+                        <div class="form-group">
+                            <label for="driverSelect" class="form-label">Select Driver</label>
+                            <select id="driverSelect" class="form-select" required>
+                                <option value="">Choose a driver</option>
+                                <option value="1">John Doe - Vehicle: AB-1234</option>
+                                <option value="2">Sarah Miller - Vehicle: CD-5678</option>
+                                <option value="3">Robert Johnson - Vehicle: EF-9012</option>
+                                <option value="4">Emily Wilson - Vehicle: GH-3456</option>
+                                <option value="5">Michael Brown - Vehicle: IJ-7890</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="routeSelect" class="form-label">Select Route</label>
+                            <select id="routeSelect" class="form-select" required>
+                                <option value="">Choose a route</option>
+                                <option value="A">Route A - Tech Park Zone</option>
+                                <option value="B">Route B - Downtown District</option>
+                                <option value="C">Route C - Business Bay</option>
+                                <option value="D">Route D - Industrial Area</option>
+                                <option value="E">Route E - Residential Complex</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="scheduleDate" class="form-label">Schedule Date</label>
+                            <input 
+                                type="date" 
+                                id="scheduleDate" 
+                                class="form-input" 
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pickupTime" class="form-label">Pickup Time</label>
+                            <input 
+                                type="time" 
+                                id="pickupTime" 
+                                class="form-input" 
+                                value="08:00"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Select Passengers</label>
+                            <div class="table-wrapper">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 40px;">
+                                                <input type="checkbox" id="selectAll">
+                                            </th>
+                                            <th>Name</th>
+                                            <th>Company</th>
+                                            <th>Location</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox" name="passenger" value="1"></td>
+                                            <td>Alice Anderson</td>
+                                            <td>Tech Corp</td>
+                                            <td>North Street, Area 1</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="passenger" value="2"></td>
+                                            <td>Bob Baker</td>
+                                            <td>Digital Solutions</td>
+                                            <td>East Avenue, Area 2</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="passenger" value="3"></td>
+                                            <td>Carol Carter</td>
+                                            <td>Tech Corp</td>
+                                            <td>South Road, Area 3</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="passenger" value="4"></td>
+                                            <td>David Davis</td>
+                                            <td>Innovation Inc</td>
+                                            <td>West Lane, Area 4</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="passenger" value="5"></td>
+                                            <td>Eva Evans</td>
+                                            <td>Digital Solutions</td>
+                                            <td>Central Plaza, Area 5</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="passenger" value="6"></td>
+                                            <td>Frank Foster</td>
+                                            <td>Tech Corp</td>
+                                            <td>Park Avenue, Area 6</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="passenger" value="7"></td>
+                                            <td>Grace Green</td>
+                                            <td>Innovation Inc</td>
+                                            <td>Market Street, Area 7</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="passenger" value="8"></td>
+                                            <td>Henry Harris</td>
+                                            <td>Digital Solutions</td>
+                                            <td>River Road, Area 8</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notes" class="form-label">Notes (Optional)</label>
+                            <textarea 
+                                id="notes" 
+                                class="form-textarea" 
+                                placeholder="Add any special instructions or notes..."
+                            ></textarea>
+                        </div>
+
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-primary btn-lg">Create Assignment</button>
+                            <button type="button" class="btn btn-outline" onclick="document.getElementById('assignmentForm').reset()">Reset Form</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Current Assignments -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Today's Assignments</h2>
+                    <p class="card-subtitle">Active driver assignments</p>
+                </div>
+                <div class="card-body">
+                    <ul class="list">
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--driver-color); color: white;">
+                                JD
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">John Doe - Route A</div>
+                                <div class="list-item-subtitle">12 passengers assigned | Pickup: 8:00 AM</div>
+                            </div>
+                            <div class="list-item-actions">
+                                <button class="btn btn-sm btn-outline">Edit</button>
+                                <button class="btn btn-sm btn-danger">Remove</button>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--driver-color); color: white;">
+                                SM
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">Sarah Miller - Route B</div>
+                                <div class="list-item-subtitle">15 passengers assigned | Pickup: 8:30 AM</div>
+                            </div>
+                            <div class="list-item-actions">
+                                <button class="btn btn-sm btn-outline">Edit</button>
+                                <button class="btn btn-sm btn-danger">Remove</button>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--driver-color); color: white;">
+                                RJ
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">Robert Johnson - Route C</div>
+                                <div class="list-item-subtitle">10 passengers assigned | Pickup: 9:00 AM</div>
+                            </div>
+                            <div class="list-item-actions">
+                                <button class="btn btn-sm btn-outline">Edit</button>
+                                <button class="btn btn-sm btn-danger">Remove</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/navigation.js"></script>
+    <script src="../js/assignment.js"></script>
+</body>
+</html>
