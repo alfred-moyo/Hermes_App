@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Track Driver - Employee Transport Manager">
+    <title>Track Driver - Passenger</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content container">
+            <a href="passenger-dashboard.html" class="logo">
+                <div class="logo-icon">🚌</div>
+                <span>Transport Manager</span>
+            </a>
+            <div class="user-menu">
+                <div class="user-info">
+                    <span class="user-name">Alice Anderson</span>
+                    <span class="user-role badge badge-passenger">Passenger</span>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        <nav class="nav-menu" id="navMenu">
+            <a href="passenger-dashboard.html" class="nav-link">Dashboard</a>
+            <a href="passenger-track.html" class="nav-link active">Track Driver</a>
+            <a href="passenger-rate.html" class="nav-link">Rate Service</a>
+            <a href="../index.html" class="nav-link">Logout</a>
+        </nav>
+    </header>
+
+    <main class="page-wrapper">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Track Your Driver</h1>
+                <p class="page-subtitle">Real-time location and ETA</p>
+            </div>
+
+            <!-- Status Banner -->
+            <div class="driver-info-card">
+                <div class="driver-header">
+                    <div class="driver-avatar">JD</div>
+                    <div class="driver-basic-info">
+                        <h2>John Doe</h2>
+                        <div style="opacity: 0.9; margin-top: 0.25rem;">
+                            Vehicle: AB-1234 | Phone: +1 (555) 1234
+                        </div>
+                    </div>
+                </div>
+                <div class="driver-details-grid">
+                    <div class="driver-detail">
+                        <div class="driver-detail-label">Current Status</div>
+                        <div class="driver-detail-value">On the way</div>
+                    </div>
+                    <div class="driver-detail">
+                        <div class="driver-detail-label">ETA to You</div>
+                        <div class="driver-detail-value">5 minutes</div>
+                    </div>
+                    <div class="driver-detail">
+                        <div class="driver-detail-label">Distance</div>
+                        <div class="driver-detail-value">1.2 km</div>
+                    </div>
+                    <div class="driver-detail">
+                        <div class="driver-detail-label">Next Stop</div>
+                        <div class="driver-detail-value">Your location</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Real-time Map -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Live Location Map</h2>
+                    <p class="card-subtitle">
+                        <span class="badge badge-success">● LIVE</span> Auto-refreshing every 30 seconds
+                    </p>
+                </div>
+                <div class="card-body">
+                    <div class="map-container" style="height: 500px;">
+                        <div class="map-placeholder">
+                            <div class="map-placeholder-icon">📍</div>
+                            <h3 style="margin-bottom: 0.5rem; color: var(--text-primary);">Live Tracking Map</h3>
+                            <p style="margin-bottom: 1rem;">Real-time driver location and route</p>
+                            <div style="background-color: rgba(255,255,255,0.9); padding: 1rem; border-radius: 0.5rem; max-width: 300px; margin: 0 auto;">
+                                <div style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                    <span style="width: 12px; height: 12px; background-color: #3b82f6; border-radius: 50%; display: inline-block;"></span>
+                                    <span style="color: var(--text-primary); font-size: 0.875rem;">Driver's current location</span>
+                                </div>
+                                <div style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                    <span style="width: 12px; height: 12px; background-color: #10b981; border-radius: 50%; display: inline-block;"></span>
+                                    <span style="color: var(--text-primary); font-size: 0.875rem;">Your pickup location</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span style="width: 12px; height: 2px; background-color: #6b7280; display: inline-block;"></span>
+                                    <span style="color: var(--text-primary); font-size: 0.875rem;">Suggested route</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alert alert-info mt-2">
+                        <strong>Integration Note:</strong> In production, integrate Google Maps API, Mapbox, or similar service for real-time GPS tracking with geolocation features.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trip Progress -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Trip Progress</h2>
+                    <p class="card-subtitle">Stops completed: 2/8</p>
+                </div>
+                <div class="card-body">
+                    <ul class="list">
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--success-color); color: white;">
+                                ✓
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">Stop 1 - North Street (Your Location)</div>
+                                <div class="list-item-subtitle">Scheduled: 8:00 AM | Status: Approaching</div>
+                            </div>
+                            <div class="list-item-actions">
+                                <span class="badge badge-warning">Next</span>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--border-color); color: white;">
+                                2
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">Stop 2 - East Avenue</div>
+                                <div class="list-item-subtitle">Scheduled: 8:05 AM | Passenger: Bob Baker</div>
+                            </div>
+                            <div class="list-item-actions">
+                                <span class="badge badge-info">Upcoming</span>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--border-color); color: white;">
+                                3
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">Stop 3 - South Road</div>
+                                <div class="list-item-subtitle">Scheduled: 8:10 AM | Passenger: Carol Carter</div>
+                            </div>
+                            <div class="list-item-actions">
+                                <span class="badge badge-info">Upcoming</span>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--border-color); color: white;">
+                                4
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">Stop 4 - West Lane</div>
+                                <div class="list-item-subtitle">Scheduled: 8:15 AM | Passenger: David Davis</div>
+                            </div>
+                            <div class="list-item-actions">
+                                <span class="badge badge-info">Upcoming</span>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--border-color); color: white;">
+                                ...
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">4 more stops</div>
+                                <div class="list-item-subtitle">View full route for complete details</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Driver Contact -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Need Assistance?</h2>
+                </div>
+                <div class="card-body">
+                    <div class="btn-group" style="display: grid; grid-template-columns: 1fr; gap: 0.75rem;">
+                        <button class="btn btn-lg btn-primary" onclick="window.location.href='tel:+15551234'">
+                            📞 Call Driver: +1 (555) 1234
+                        </button>
+                        <button class="btn btn-lg btn-outline" onclick="alert('SMS feature coming soon!')">
+                            💬 Send Message
+                        </button>
+                        <button class="btn btn-lg btn-outline" onclick="alert('Emergency contact feature coming soon!')">
+                            🚨 Emergency Contact
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Location Sharing -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Share Your Location</h2>
+                </div>
+                <div class="card-body">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">
+                        Help your driver find you faster by sharing your precise location
+                    </p>
+                    <button class="btn btn-secondary btn-block" onclick="shareLocation()">
+                        📍 Share My Location with Driver
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/navigation.js"></script>
+    <script src="../js/tracking.js"></script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Management Dashboard - Employee Transport Manager">
+    <title>Management Dashboard</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content container">
+            <a href="management-dashboard.html" class="logo">
+                <div class="logo-icon">🚌</div>
+                <span>Transport Manager</span>
+            </a>
+            <div class="user-menu">
+                <div class="user-info">
+                    <span class="user-name">Management User</span>
+                    <span class="user-role badge badge-management">Management</span>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        <nav class="nav-menu" id="navMenu">
+            <a href="management-dashboard.html" class="nav-link active">Dashboard</a>
+            <a href="management-assign.html" class="nav-link">Assign Drivers</a>
+            <a href="management-reports.html" class="nav-link">Reports</a>
+            <a href="../index.html" class="nav-link">Logout</a>
+        </nav>
+    </header>
+
+    <main class="page-wrapper">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Management Dashboard</h1>
+                <p class="page-subtitle">Overview of all transportation activities</p>
+            </div>
+
+            <!-- Statistics Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Total Drivers</div>
+                    <div class="stat-value">24</div>
+                    <div class="stat-change positive">↑ 2 from last month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Active Routes</div>
+                    <div class="stat-value">18</div>
+                    <div class="stat-change positive">↑ 1 today</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Total Passengers</div>
+                    <div class="stat-value">156</div>
+                    <div class="stat-change">No change</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Attendance Rate</div>
+                    <div class="stat-value">94%</div>
+                    <div class="stat-change positive">↑ 2% this week</div>
+                </div>
+            </div>
+
+            <!-- Active Drivers Section -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Active Drivers Today</h2>
+                    <p class="card-subtitle">Currently on duty</p>
+                </div>
+                <div class="card-body">
+                    <ul class="list">
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--driver-color); color: white;">
+                                JD
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">John Doe</div>
+                                <div class="list-item-subtitle">Route A - Tech Park Zone | 12 Passengers</div>
+                            </div>
+                            <div class="list-item-actions">
+                                <span class="badge badge-success">On Route</span>
+                                <a href="management-reports.html" class="btn btn-sm btn-outline">View</a>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--driver-color); color: white;">
+                                SM
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">Sarah Miller</div>
+                                <div class="list-item-subtitle">Route B - Downtown District | 15 Passengers</div>
+                            </div>
+                            <div class="list-item-actions">
+                                <span class="badge badge-success">On Route</span>
+                                <a href="management-reports.html" class="btn btn-sm btn-outline">View</a>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--driver-color); color: white;">
+                                RJ
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">Robert Johnson</div>
+                                <div class="list-item-subtitle">Route C - Business Bay | 10 Passengers</div>
+                            </div>
+                            <div class="list-item-actions">
+                                <span class="badge badge-warning">Starting Soon</span>
+                                <a href="management-reports.html" class="btn btn-sm btn-outline">View</a>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--driver-color); color: white;">
+                                EW
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">Emily Wilson</div>
+                                <div class="list-item-subtitle">Route D - Industrial Area | 8 Passengers</div>
+                            </div>
+                            <div class="list-item-actions">
+                                <span class="badge badge-success">On Route</span>
+                                <a href="management-reports.html" class="btn btn-sm btn-outline">View</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="management-assign.html" class="btn btn-primary">Assign New Driver</a>
+                </div>
+            </div>
+
+            <!-- Recent Attendance Reports -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Recent Attendance Reports</h2>
+                    <p class="card-subtitle">Latest submissions from drivers</p>
+                </div>
+                <div class="card-body">
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Driver</th>
+                                    <th>Route</th>
+                                    <th>Date</th>
+                                    <th>Present</th>
+                                    <th>Absent</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>John Doe</td>
+                                    <td>Route A</td>
+                                    <td>Today, 8:30 AM</td>
+                                    <td>11/12</td>
+                                    <td>1</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Sarah Miller</td>
+                                    <td>Route B</td>
+                                    <td>Today, 8:45 AM</td>
+                                    <td>14/15</td>
+                                    <td>1</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Robert Johnson</td>
+                                    <td>Route C</td>
+                                    <td>Yesterday, 8:15 AM</td>
+                                    <td>10/10</td>
+                                    <td>0</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Emily Wilson</td>
+                                    <td>Route D</td>
+                                    <td>Yesterday, 9:00 AM</td>
+                                    <td>7/8</td>
+                                    <td>1</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="management-reports.html" class="btn btn-outline">View All Reports</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

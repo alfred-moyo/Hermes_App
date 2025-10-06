@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Driver Dashboard - Employee Transport Manager">
+    <title>Driver Dashboard</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content container">
+            <a href="driver-dashboard.html" class="logo">
+                <div class="logo-icon">🚌</div>
+                <span>Transport Manager</span>
+            </a>
+            <div class="user-menu">
+                <div class="user-info">
+                    <span class="user-name">John Doe</span>
+                    <span class="user-role badge badge-driver">Driver</span>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        <nav class="nav-menu" id="navMenu">
+            <a href="driver-dashboard.html" class="nav-link active">Dashboard</a>
+            <a href="driver-route.html" class="nav-link">My Route</a>
+            <a href="driver-checkin.html" class="nav-link">Check-In</a>
+            <a href="../index.html" class="nav-link">Logout</a>
+        </nav>
+    </header>
+
+    <main class="page-wrapper">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Welcome, John!</h1>
+                <p class="page-subtitle">Here's your schedule for today</p>
+            </div>
+
+            <!-- Today's Assignment Alert -->
+            <div class="alert alert-info">
+                <strong>Today's Assignment:</strong> Route A - Tech Park Zone | Pickup starts at 8:00 AM
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="stats-grid">
+                <div class="stat-card" style="border-left-color: var(--passenger-color);">
+                    <div class="stat-label">Passengers Today</div>
+                    <div class="stat-value">12</div>
+                    <div class="stat-change">Assigned to you</div>
+                </div>
+                <div class="stat-card" style="border-left-color: var(--success-color);">
+                    <div class="stat-label">Check-In Status</div>
+                    <div class="stat-value">11/12</div>
+                    <div class="stat-change">1 remaining</div>
+                </div>
+                <div class="stat-card" style="border-left-color: var(--warning-color);">
+                    <div class="stat-label">Your Rating</div>
+                    <div class="stat-value">4.8</div>
+                    <div class="stat-change">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="stat-card" style="border-left-color: var(--info-color);">
+                    <div class="stat-label">Total Stops</div>
+                    <div class="stat-value">8</div>
+                    <div class="stat-change">On your route</div>
+                </div>
+            </div>
+
+            <!-- Today's Route Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Today's Route - Route A</h2>
+                    <p class="card-subtitle">Tech Park Zone Circuit</p>
+                </div>
+                <div class="card-body">
+                    <div class="driver-details-grid">
+                        <div class="driver-detail" style="background-color: var(--bg-secondary);">
+                            <div class="driver-detail-label" style="opacity: 1; color: var(--text-secondary);">Start Time</div>
+                            <div class="driver-detail-value" style="color: var(--text-primary);">8:00 AM</div>
+                        </div>
+                        <div class="driver-detail" style="background-color: var(--bg-secondary);">
+                            <div class="driver-detail-label" style="opacity: 1; color: var(--text-secondary);">Estimated Duration</div>
+                            <div class="driver-detail-value" style="color: var(--text-primary);">45 minutes</div>
+                        </div>
+                        <div class="driver-detail" style="background-color: var(--bg-secondary);">
+                            <div class="driver-detail-label" style="opacity: 1; color: var(--text-secondary);">Vehicle</div>
+                            <div class="driver-detail-value" style="color: var(--text-primary);">AB-1234</div>
+                        </div>
+                        <div class="driver-detail" style="background-color: var(--bg-secondary);">
+                            <div class="driver-detail-label" style="opacity: 1; color: var(--text-secondary);">Passengers</div>
+                            <div class="driver-detail-value" style="color: var(--text-primary);">12 assigned</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="btn-group">
+                        <a href="driver-route.html" class="btn btn-primary">View Full Route</a>
+                        <a href="driver-checkin.html" class="btn btn-secondary">Start Check-In</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Action Buttons -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Quick Actions</h2>
+                </div>
+                <div class="card-body">
+                    <div class="btn-group" style="display: grid; grid-template-columns: 1fr; gap: 0.75rem;">
+                        <a href="driver-checkin.html" class="btn btn-lg btn-primary">
+                            ✓ Start Passenger Check-In
+                        </a>
+                        <a href="driver-route.html" class="btn btn-lg btn-outline">
+                            🗺️ View Route Map
+                        </a>
+                        <button class="btn btn-lg btn-outline" onclick="alert('Contact feature coming soon!')">
+                            📞 Contact Support
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Trips -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Recent Trip History</h2>
+                    <p class="card-subtitle">Your last 5 trips</p>
+                </div>
+                <div class="card-body">
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Route</th>
+                                    <th>Passengers</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Today</td>
+                                    <td>Route A</td>
+                                    <td>11/12</td>
+                                    <td><span class="badge badge-warning">In Progress</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Oct 4, 2025</td>
+                                    <td>Route A</td>
+                                    <td>12/12</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Oct 3, 2025</td>
+                                    <td>Route A</td>
+                                    <td>11/12</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Oct 2, 2025</td>
+                                    <td>Route A</td>
+                                    <td>12/12</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Oct 1, 2025</td>
+                                    <td>Route A</td>
+                                    <td>10/12</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Ratings -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Recent Passenger Feedback</h2>
+                    <p class="card-subtitle">Latest reviews from passengers</p>
+                </div>
+                <div class="card-body">
+                    <ul class="list">
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--passenger-color); color: white;">
+                                AA
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">Alice Anderson ⭐⭐⭐⭐⭐</div>
+                                <div class="list-item-subtitle">"Always on time and very professional. Great driver!"</div>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--passenger-color); color: white;">
+                                BB
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">Bob Baker ⭐⭐⭐⭐⭐</div>
+                                <div class="list-item-subtitle">"Safe driving and friendly service. Highly recommend!"</div>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--passenger-color); color: white;">
+                                CC
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">Carol Carter ⭐⭐⭐⭐</div>
+                                <div class="list-item-subtitle">"Good service overall. Vehicle was clean."</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

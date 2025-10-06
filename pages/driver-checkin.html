@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Driver Check-In - Employee Transport Manager">
+    <title>Passenger Check-In - Driver</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content container">
+            <a href="driver-dashboard.html" class="logo">
+                <div class="logo-icon">🚌</div>
+                <span>Transport Manager</span>
+            </a>
+            <div class="user-menu">
+                <div class="user-info">
+                    <span class="user-name">John Doe</span>
+                    <span class="user-role badge badge-driver">Driver</span>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        <nav class="nav-menu" id="navMenu">
+            <a href="driver-dashboard.html" class="nav-link">Dashboard</a>
+            <a href="driver-route.html" class="nav-link">My Route</a>
+            <a href="driver-checkin.html" class="nav-link active">Check-In</a>
+            <a href="../index.html" class="nav-link">Logout</a>
+        </nav>
+    </header>
+
+    <main class="page-wrapper">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Passenger Check-In</h1>
+                <p class="page-subtitle">Mark passengers as present or absent</p>
+            </div>
+
+            <!-- Check-In Summary -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="stats-grid" style="grid-template-columns: 1fr 1fr;">
+                        <div class="stat-card" style="border-left-color: var(--success-color);">
+                            <div class="stat-label">Present</div>
+                            <div class="stat-value" id="presentCount">11</div>
+                        </div>
+                        <div class="stat-card" style="border-left-color: var(--danger-color);">
+                            <div class="stat-label">Absent</div>
+                            <div class="stat-value" id="absentCount">1</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Check-In List -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Passenger List</h2>
+                    <p class="card-subtitle">Tap to mark present or absent</p>
+                </div>
+                <div class="card-body">
+                    <ul class="checkin-list">
+                        <li class="checkin-item present" data-passenger-id="1">
+                            <div class="checkin-header">
+                                <div class="checkin-info">
+                                    <h3>Alice Anderson</h3>
+                                    <span class="badge badge-info">Tech Corp</span>
+                                </div>
+                            </div>
+                            <div class="checkin-details">
+                                <span class="checkin-detail">📍 North Street, Area 1</span>
+                                <span class="checkin-detail">⏰ 8:00 AM</span>
+                                <span class="checkin-detail">📞 +1 (555) 0101</span>
+                            </div>
+                            <div class="toggle-group">
+                                <button class="toggle-btn present active" onclick="markAttendance(1, 'present')">
+                                    ✓ Present
+                                </button>
+                                <button class="toggle-btn absent" onclick="markAttendance(1, 'absent')">
+                                    ✗ Absent
+                                </button>
+                            </div>
+                        </li>
+
+                        <li class="checkin-item present" data-passenger-id="2">
+                            <div class="checkin-header">
+                                <div class="checkin-info">
+                                    <h3>Bob Baker</h3>
+                                    <span class="badge badge-info">Digital Solutions</span>
+                                </div>
+                            </div>
+                            <div class="checkin-details">
+                                <span class="checkin-detail">📍 East Avenue, Area 2</span>
+                                <span class="checkin-detail">⏰ 8:05 AM</span>
+                                <span class="checkin-detail">📞 +1 (555) 0102</span>
+                            </div>
+                            <div class="toggle-group">
+                                <button class="toggle-btn present active" onclick="markAttendance(2, 'present')">
+                                    ✓ Present
+                                </button>
+                                <button class="toggle-btn absent" onclick="markAttendance(2, 'absent')">
+                                    ✗ Absent
+                                </button>
+                            </div>
+                        </li>
+
+                        <li class="checkin-item present" data-passenger-id="3">
+                            <div class="checkin-header">
+                                <div class="checkin-info">
+                                    <h3>Carol Carter</h3>
+                                    <span class="badge badge-info">Tech Corp</span>
+                                </div>
+                            </div>
+                            <div class="checkin-details">
+                                <span class="checkin-detail">📍 South Road, Area 3</span>
+                                <span class="checkin-detail">⏰ 8:10 AM</span>
+                                <span class="checkin-detail">📞 +1 (555) 0103</span>
+                            </div>
+                            <div class="toggle-group">
+                                <button class="toggle-btn present active" onclick="markAttendance(3, 'present')">
+                                    ✓ Present
+                                </button>
+                                <button class="toggle-btn absent" onclick="markAttendance(3, 'absent')">
+                                    ✗ Absent
+                                </button>
+                            </div>
+                        </li>
+
+                        <li class="checkin-item present" data-passenger-id="4">
+                            <div class="checkin-header">
+                                <div class="checkin-info">
+                                    <h3>David Davis</h3>
+                                    <span class="badge badge-info">Innovation Inc</span>
+                                </div>
+                            </div>
+                            <div class="checkin-details">
+                                <span class="checkin-detail">📍 West Lane, Area 4</span>
+                                <span class="checkin-detail">⏰ 8:15 AM</span>
+                                <span class="checkin-detail">📞 +1 (555) 0104</span>
+                            </div>
+                            <div class="toggle-group">
+                                <button class="toggle-btn present active" onclick="markAttendance(4, 'present')">
+                                    ✓ Present
+                                </button>
+                                <button class="toggle-btn absent" onclick="markAttendance(4, 'absent')">
+                                    ✗ Absent
+                                </button>
+                            </div>
+                        </li>
+
+                        <li class="checkin-item present" data-passenger-id="5">
+                            <div class="checkin-header">
+                                <div class="checkin-info">
+                                    <h3>Eva Evans</h3>
+                                    <span class="badge badge-info">Digital Solutions</span>
+                                </div>
+                            </div>
+                            <div class="checkin-details">
+                                <span class="checkin-detail">📍 Central Plaza, Area 5</span>
+                                <span class="checkin-detail">⏰ 8:20 AM</span>
+                                <span class="checkin-detail">📞 +1 (555) 0105</span>
+                            </div>
+                            <div class="toggle-group">
+                                <button class="toggle-btn present active" onclick="markAttendance(5, 'present')">
+                                    ✓ Present
+                                </button>
+                                <button class="toggle-btn absent" onclick="markAttendance(5, 'absent')">
+                                    ✗ Absent
+                                </button>
+                            </div>
+                        </li>
+
+                        <li class="checkin-item present" data-passenger-id="6">
+                            <div class="checkin-header">
+                                <div class="checkin-info">
+                                    <h3>Frank Foster</h3>
+                                    <span class="badge badge-info">Tech Corp</span>
+                                </div>
+                            </div>
+                            <div class="checkin-details">
+                                <span class="checkin-detail">📍 Park Avenue, Area 6</span>
+                                <span class="checkin-detail">⏰ 8:25 AM</span>
+                                <span class="checkin-detail">📞 +1 (555) 0106</span>
+                            </div>
+                            <div class="toggle-group">
+                                <button class="toggle-btn present active" onclick="markAttendance(6, 'present')">
+                                    ✓ Present
+                                </button>
+                                <button class="toggle-btn absent" onclick="markAttendance(6, 'absent')">
+                                    ✗ Absent
+                                </button>
+                            </div>
+                        </li>
+
+                        <li class="checkin-item present" data-passenger-id="7">
+                            <div class="checkin-header">
+                                <div class="checkin-info">
+                                    <h3>Grace Green</h3>
+                                    <span class="badge badge-info">Innovation Inc</span>
+                                </div>
+                            </div>
+                            <div class="checkin-details">
+                                <span class="checkin-detail">📍 Market Street, Area 7</span>
+                                <span class="checkin-detail">⏰ 8:30 AM</span>
+                                <span class="checkin-detail">📞 +1 (555) 0107</span>
+                            </div>
+                            <div class="toggle-group">
+                                <button class="toggle-btn present active" onclick="markAttendance(7, 'present')">
+                                    ✓ Present
+                                </button>
+                                <button class="toggle-btn absent" onclick="markAttendance(7, 'absent')">
+                                    ✗ Absent
+                                </button>
+                            </div>
+                        </li>
+
+                        <li class="checkin-item present" data-passenger-id="8">
+                            <div class="checkin-header">
+                                <div class="checkin-info">
+                                    <h3>Henry Harris</h3>
+                                    <span class="badge badge-info">Digital Solutions</span>
+                                </div>
+                            </div>
+                            <div class="checkin-details">
+                                <span class="checkin-detail">📍 River Road, Area 8</span>
+                                <span class="checkin-detail">⏰ 8:35 AM</span>
+                                <span class="checkin-detail">📞 +1 (555) 0108</span>
+                            </div>
+                            <div class="toggle-group">
+                                <button class="toggle-btn present active" onclick="markAttendance(8, 'present')">
+                                    ✓ Present
+                                </button>
+                                <button class="toggle-btn absent" onclick="markAttendance(8, 'absent')">
+                                    ✗ Absent
+                                </button>
+                            </div>
+                        </li>
+
+                        <li class="checkin-item present" data-passenger-id="9">
+                            <div class="checkin-header">
+                                <div class="checkin-info">
+                                    <h3>Ivy Irving</h3>
+                                    <span class="badge badge-info">Tech Corp</span>
+                                </div>
+                            </div>
+                            <div class="checkin-details">
+                                <span class="checkin-detail">📍 Lake View, Area 9</span>
+                                <span class="checkin-detail">⏰ 8:38 AM</span>
+                                <span class="checkin-detail">📞 +1 (555) 0109</span>
+                            </div>
+                            <div class="toggle-group">
+                                <button class="toggle-btn present active" onclick="markAttendance(9, 'present')">
+                                    ✓ Present
+                                </button>
+                                <button class="toggle-btn absent" onclick="markAttendance(9, 'absent')">
+                                    ✗ Absent
+                                </button>
+                            </div>
+                        </li>
+
+                        <li class="checkin-item present" data-passenger-id="10">
+                            <div class="checkin-header">
+                                <div class="checkin-info">
+                                    <h3>Jack Jackson</h3>
+                                    <span class="badge badge-info">Innovation Inc</span>
+                                </div>
+                            </div>
+                            <div class="checkin-details">
+                                <span class="checkin-detail">📍 Hill Road, Area 10</span>
+                                <span class="checkin-detail">⏰ 8:40 AM</span>
+                                <span class="checkin-detail">📞 +1 (555) 0110</span>
+                            </div>
+                            <div class="toggle-group">
+                                <button class="toggle-btn present active" onclick="markAttendance(10, 'present')">
+                                    ✓ Present
+                                </button>
+                                <button class="toggle-btn absent" onclick="markAttendance(10, 'absent')">
+                                    ✗ Absent
+                                </button>
+                            </div>
+                        </li>
+
+                        <li class="checkin-item present" data-passenger-id="11">
+                            <div class="checkin-header">
+                                <div class="checkin-info">
+                                    <h3>Karen King</h3>
+                                    <span class="badge badge-info">Digital Solutions</span>
+                                </div>
+                            </div>
+                            <div class="checkin-details">
+                                <span class="checkin-detail">📍 Valley Street, Area 11</span>
+                                <span class="checkin-detail">⏰ 8:42 AM</span>
+                                <span class="checkin-detail">📞 +1 (555) 0111</span>
+                            </div>
+                            <div class="toggle-group">
+                                <button class="toggle-btn present active" onclick="markAttendance(11, 'present')">
+                                    ✓ Present
+                                </button>
+                                <button class="toggle-btn absent" onclick="markAttendance(11, 'absent')">
+                                    ✗ Absent
+                                </button>
+                            </div>
+                        </li>
+
+                        <li class="checkin-item absent" data-passenger-id="12">
+                            <div class="checkin-header">
+                                <div class="checkin-info">
+                                    <h3>Larry Lewis</h3>
+                                    <span class="badge badge-info">Tech Corp</span>
+                                </div>
+                            </div>
+                            <div class="checkin-details">
+                                <span class="checkin-detail">📍 Bridge Avenue, Area 12</span>
+                                <span class="checkin-detail">⏰ 8:45 AM</span>
+                                <span class="checkin-detail">📞 +1 (555) 0112</span>
+                            </div>
+                            <div class="toggle-group">
+                                <button class="toggle-btn present" onclick="markAttendance(12, 'present')">
+                                    ✓ Present
+                                </button>
+                                <button class="toggle-btn absent active" onclick="markAttendance(12, 'absent')">
+                                    ✗ Absent
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary btn-block btn-lg" onclick="submitAttendance()">
+                        Submit Attendance to Management
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/navigation.js"></script>
+    <script src="../js/checkin.js"></script>
+</body>
+</html>

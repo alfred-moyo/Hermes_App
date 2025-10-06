@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Driver Route - Employee Transport Manager">
+    <title>My Route - Driver</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content container">
+            <a href="driver-dashboard.html" class="logo">
+                <div class="logo-icon">🚌</div>
+                <span>Transport Manager</span>
+            </a>
+            <div class="user-menu">
+                <div class="user-info">
+                    <span class="user-name">John Doe</span>
+                    <span class="user-role badge badge-driver">Driver</span>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        <nav class="nav-menu" id="navMenu">
+            <a href="driver-dashboard.html" class="nav-link">Dashboard</a>
+            <a href="driver-route.html" class="nav-link active">My Route</a>
+            <a href="driver-checkin.html" class="nav-link">Check-In</a>
+            <a href="../index.html" class="nav-link">Logout</a>
+        </nav>
+    </header>
+
+    <main class="page-wrapper">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Route A - Tech Park Zone</h1>
+                <p class="page-subtitle">Today's pickup schedule and passenger list</p>
+            </div>
+
+            <!-- Route Summary -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Route Summary</h2>
+                </div>
+                <div class="card-body">
+                    <div class="driver-details-grid">
+                        <div class="driver-detail" style="background-color: var(--bg-secondary);">
+                            <div class="driver-detail-label" style="opacity: 1; color: var(--text-secondary);">Start Time</div>
+                            <div class="driver-detail-value" style="color: var(--text-primary);">8:00 AM</div>
+                        </div>
+                        <div class="driver-detail" style="background-color: var(--bg-secondary);">
+                            <div class="driver-detail-label" style="opacity: 1; color: var(--text-secondary);">Total Stops</div>
+                            <div class="driver-detail-value" style="color: var(--text-primary);">8 Locations</div>
+                        </div>
+                        <div class="driver-detail" style="background-color: var(--bg-secondary);">
+                            <div class="driver-detail-label" style="opacity: 1; color: var(--text-secondary);">Total Passengers</div>
+                            <div class="driver-detail-value" style="color: var(--text-primary);">12 People</div>
+                        </div>
+                        <div class="driver-detail" style="background-color: var(--bg-secondary);">
+                            <div class="driver-detail-label" style="opacity: 1; color: var(--text-secondary);">Est. Duration</div>
+                            <div class="driver-detail-value" style="color: var(--text-primary);">45 minutes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map View -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Route Map</h2>
+                </div>
+                <div class="card-body">
+                    <div class="map-container">
+                        <div class="map-placeholder">
+                            <div class="map-placeholder-icon">🗺️</div>
+                            <p>Interactive Route Map</p>
+                            <p style="font-size: 0.875rem; margin-top: 0.5rem;">
+                                Map shows pickup locations and optimal route
+                            </p>
+                        </div>
+                    </div>
+                    <div class="alert alert-info">
+                        <strong>Note:</strong> This is a placeholder for the map. In production, integrate Google Maps or similar service.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Passenger List with Pickup Locations -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Passenger Pickup List</h2>
+                    <p class="card-subtitle">Ordered by pickup sequence</p>
+                </div>
+                <div class="card-body">
+                    <ul class="list">
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--passenger-color); color: white;">
+                                1
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">Alice Anderson</div>
+                                <div class="list-item-subtitle">
+                                    📍 North Street, Area 1 | 🏢 Tech Corp | ⏰ 8:00 AM
+                                </div>
+                            </div>
+                            <div class="list-item-actions">
+                                <span class="badge badge-success">Present</span>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--passenger-color); color: white;">
+                                2
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">Bob Baker</div>
+                                <div class="list-item-subtitle">
+                                    📍 East Avenue, Area 2 | 🏢 Digital Solutions | ⏰ 8:05 AM
+                                </div>
+                            </div>
+                            <div class="list-item-actions">
+                                <span class="badge badge-success">Present</span>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--passenger-color); color: white;">
+                                3
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">Carol Carter</div>
+                                <div class="list-item-subtitle">
+                                    📍 South Road, Area 3 | 🏢 Tech Corp | ⏰ 8:10 AM
+                                </div>
+                            </div>
+                            <div class="list-item-actions">
+                                <span class="badge badge-success">Present</span>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--passenger-color); color: white;">
+                                4
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">David Davis</div>
+                                <div class="list-item-subtitle">
+                                    📍 West Lane, Area 4 | 🏢 Innovation Inc | ⏰ 8:15 AM
+                                </div>
+                            </div>
+                            <div class="list-item-actions">
+                                <span class="badge badge-success">Present</span>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--passenger-color); color: white;">
+                                5
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">Eva Evans</div>
+                                <div class="list-item-subtitle">
+                                    📍 Central Plaza, Area 5 | 🏢 Digital Solutions | ⏰ 8:20 AM
+                                </div>
+                            </div>
+                            <div class="list-item-actions">
+                                <span class="badge badge-success">Present</span>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--passenger-color); color: white;">
+                                6
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">Frank Foster</div>
+                                <div class="list-item-subtitle">
+                                    📍 Park Avenue, Area 6 | 🏢 Tech Corp | ⏰ 8:25 AM
+                                </div>
+                            </div>
+                            <div class="list-item-actions">
+                                <span class="badge badge-success">Present</span>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--passenger-color); color: white;">
+                                7
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">Grace Green</div>
+                                <div class="list-item-subtitle">
+                                    📍 Market Street, Area 7 | 🏢 Innovation Inc | ⏰ 8:30 AM
+                                </div>
+                            </div>
+                            <div class="list-item-actions">
+                                <span class="badge badge-success">Present</span>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--passenger-color); color: white;">
+                                8
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">Henry Harris</div>
+                                <div class="list-item-subtitle">
+                                    📍 River Road, Area 8 | 🏢 Digital Solutions | ⏰ 8:35 AM
+                                </div>
+                            </div>
+                            <div class="list-item-actions">
+                                <span class="badge badge-success">Present</span>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--passenger-color); color: white;">
+                                9
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">Ivy Irving</div>
+                                <div class="list-item-subtitle">
+                                    📍 Lake View, Area 9 | 🏢 Tech Corp | ⏰ 8:38 AM
+                                </div>
+                            </div>
+                            <div class="list-item-actions">
+                                <span class="badge badge-success">Present</span>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--passenger-color); color: white;">
+                                10
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">Jack Jackson</div>
+                                <div class="list-item-subtitle">
+                                    📍 Hill Road, Area 10 | 🏢 Innovation Inc | ⏰ 8:40 AM
+                                </div>
+                            </div>
+                            <div class="list-item-actions">
+                                <span class="badge badge-success">Present</span>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--passenger-color); color: white;">
+                                11
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">Karen King</div>
+                                <div class="list-item-subtitle">
+                                    📍 Valley Street, Area 11 | 🏢 Digital Solutions | ⏰ 8:42 AM
+                                </div>
+                            </div>
+                            <div class="list-item-actions">
+                                <span class="badge badge-success">Present</span>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-item-icon" style="background-color: var(--passenger-color); color: white;">
+                                12
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">Larry Lewis</div>
+                                <div class="list-item-subtitle">
+                                    📍 Bridge Avenue, Area 12 | 🏢 Tech Corp | ⏰ 8:45 AM
+                                </div>
+                            </div>
+                            <div class="list-item-actions">
+                                <span class="badge badge-danger">Absent</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="driver-checkin.html" class="btn btn-primary btn-block">Go to Check-In Page</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>
